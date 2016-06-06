@@ -124,6 +124,7 @@ module FakeS3
         response['Accept-Ranges'] = "bytes"
         response['Last-Ranges'] = "bytes"
         response['Access-Control-Allow-Origin'] = '*'
+        response['Access-Control-Allow-Headers'] = '*'
 
         real_obj.custom_metadata.each do |header, value|
           response.header['x-amz-meta-' + header] = value
