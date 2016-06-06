@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+STDOUT.sync = true
+
 $: << './lib'
 
 require 'fakes3/cli'
