@@ -224,7 +224,7 @@ module FakeS3
       end
 
       response['Access-Control-Allow-Origin']   = '*'
-      response['Access-Control-Allow-Headers']  = request.header['Access-Control-Request-Headers']
+      response['Access-Control-Allow-Headers']  = request['Access-Control-Request-Headers']
       response['Access-Control-Expose-Headers'] = 'ETag'
 
       response.status = 200
@@ -258,7 +258,7 @@ module FakeS3
         )
 
         response.body = XmlAdapter.complete_multipart_result real_obj
-      elsif request.content_type =~ /^multipart\/form-data; boundary=(.+)/
+      elsif request.content_type =~ /^multipart\/form-data; ?boundary=(.+)/
         key=request.query['key']
 
         success_action_redirect = request.query['success_action_redirect']
@@ -297,7 +297,7 @@ module FakeS3
 
       response['Content-Type']                  = 'text/xml'
       response['Access-Control-Allow-Origin']   = '*'
-      response['Access-Control-Allow-Headers']  = request.header['Access-Control-Request-Headers']
+      response['Access-Control-Allow-Headers']  = request['Access-Control-Request-Headers']
       response['Access-Control-Expose-Headers'] = 'ETag'
     end
 
@@ -321,7 +321,7 @@ module FakeS3
 
       response['Access-Control-Allow-Origin']   = '*'
       response['Access-Control-Allow-Methods']  = 'PUT, POST, HEAD, GET, OPTIONS'
-      response['Access-Control-Allow-Headers']  = request.header['Access-Control-Request-Headers']
+      response['Access-Control-Allow-Headers']  = request['Access-Control-Request-Headers']
       response['Access-Control-Expose-Headers'] = 'ETag'
     end
 
