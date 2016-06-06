@@ -224,7 +224,7 @@ module FakeS3
       end
 
       response['Access-Control-Allow-Origin']   = '*'
-      response['Access-Control-Allow-Headers']  = request.headers['Access-Control-Request-Headers']
+      response['Access-Control-Allow-Headers']  = request.header['Access-Control-Request-Headers']
       response['Access-Control-Expose-Headers'] = 'ETag'
 
       response.status = 200
@@ -297,7 +297,7 @@ module FakeS3
 
       response['Content-Type']                  = 'text/xml'
       response['Access-Control-Allow-Origin']   = '*'
-      response['Access-Control-Allow-Headers']  = request.headers['Access-Control-Request-Headers']
+      response['Access-Control-Allow-Headers']  = request.header['Access-Control-Request-Headers']
       response['Access-Control-Expose-Headers'] = 'ETag'
     end
 
@@ -321,7 +321,7 @@ module FakeS3
 
       response['Access-Control-Allow-Origin']   = '*'
       response['Access-Control-Allow-Methods']  = 'PUT, POST, HEAD, GET, OPTIONS'
-      response['Access-Control-Allow-Headers']  = request.headers['Access-Control-Request-Headers']
+      response['Access-Control-Allow-Headers']  = request.header['Access-Control-Request-Headers']
       response['Access-Control-Expose-Headers'] = 'ETag'
     end
 
